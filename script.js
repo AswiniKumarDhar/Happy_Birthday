@@ -3,36 +3,40 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
         document.getElementById("kadoIn").onclick = function () { if (fungsiAwal == 0) { audio.play(); fungsiAwal = 1; kadoIn.style = "transition:all .30s ease;transform:scale(10);opacity:0"; wallpaper.style = "transform: scale(1.6);"; ket.style = "display:none"; setTimeout(initengahan, 500); setTimeout(inipesan, 500) } }
 
         async function inipesan() {
-            var { value: nama } = await swals.fire({
-                title: 'Your name?',
-                input: 'text',
-                confirmButtonText: 'Continue',
-                showCancelButton: false,
-            });
-            if (nama && nama.length < 11) {
-                window.nama = nama;
-                vketikhalo = "Hi, " + nama + " &#10084;";
-                    
-                // ⬇️ Send to Google Sheets
-                fetch("https://script.google.com/macros/s/AKfycbyFL36KgYak84THVel33sYExf_Quptml0jMvRdv1FSrPn91DVF5sqTFfVY1uF3O8Jn9zQ/exec", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name: nama, token: "Arpita@1998" })
-                })
-                .then(res => res.json())
-                .then(data => console.log("Saved:", data))
-                .catch(err => console.error("Error:", err));
+    var { value: nama } = await swals.fire({
+        title: 'Your name?',
+        input: 'text',
+        confirmButtonText: 'Continue',
+        showCancelButton: false,
+    });
 
-                await swals.fire('Hi, ' + nama + ' ツ');
-                await swals.fire('It\'s your birthday today!');
-                await swals.fire('Happy birthday! 🎉');
-                await swals.fire('Wishing you a long and healthy life');
-                pilihwarna();
-            } else {
-                await swals.fire('Oops!', 'Name cannot be empty or more than 10 characters!');
-                inipesan();
-            }
+    if (nama && nama.length < 11) {
+        window.nama = nama;
+        vketikhalo = "Hi, " + nama + " &#10084;";
+
+        // ⬇️ Save to Google Sheets via GET (avoids CORS)
+        const ENDPOINT = "https://script.google.com/macros/s/AKfycbyFL36KgYak84THVel33sYExf_Quptml0jMvRdv1FSrPn91DVF5sqTFfVY1uF3O8Jn9zQ/exec";
+        const SECRET_TOKEN = "Arpita@1998";
+
+        try {
+            const res = await fetch(`${ENDPOINT}?name=${encodeURIComponent(nama)}&token=${SECRET_TOKEN}`);
+            const data = await res.json();
+            console.log("Saved:", data);
+        } catch (err) {
+            console.error("Error saving:", err);
         }
+
+        await swals.fire('Hi, ' + nama + ' ツ');
+        await swals.fire('It\'s your birthday today!');
+        await swals.fire('Happy birthday! 🎉');
+        await swals.fire('Wishing you a long and healthy life');
+        pilihwarna();
+    } else {
+        await swals.fire('Oops!', 'Name cannot be empty or more than 10 characters!');
+        inipesan();
+    }
+}
+
 
         async function pilihwarna() {
             var { isConfirmed: warna } = await swals.fire({
@@ -253,6 +257,7 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
             }
 
         }
+
 
 
 
