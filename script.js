@@ -10,7 +10,7 @@ const opsL = document.getElementById("opsL");
 const kolombaru = document.getElementById("kolombaru");
 
 const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 2300, allowOutsideClick: false, showConfirmButton: false, timerProgressBar: true, imageHeight: 90, }); 
-let audio = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_47f4a4e6a0.mp3?filename=romantic-piano-112191.mp3");
+let audio = new Audio("song/Butterfly-chosic.com_.mp3");
 audio.loop = true;   // keeps playing in loop
 audio.volume = 0.7;  // 70% volume
 ftganti = 0; 
@@ -297,3 +297,4 @@ setInterval(function name(params) {
             }
 
         }
+
