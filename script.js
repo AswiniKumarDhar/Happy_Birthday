@@ -1,8 +1,50 @@
+const fotostiker = document.getElementById("fotostiker");
+const kadoIn = document.getElementById("kadoIn");
+const wallpaper = document.getElementById("wallpaper");
+const bodyblur = document.getElementById("bodyblur");
+const ket = document.getElementById("ket");
+const Content = document.getElementById("Content");
+const Tombol = document.getElementById("Tombol");
+const kalimat = document.getElementById("kalimat");
+const opsL = document.getElementById("opsL");
+const kolombaru = document.getElementById("kolombaru");
+
 const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 2300, allowOutsideClick: false, showConfirmButton: false, timerProgressBar: true, imageHeight: 90, }); 
 let audio = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_47f4a4e6a0.mp3?filename=romantic-piano-112191.mp3");
 audio.loop = true;   // keeps playing in loop
 audio.volume = 0.7;  // 70% volume
-ftganti = 0; fungsi = 0; fungsiAwal = 0; deffotostiker = fotostiker.src; function berjatuhan() { const heart = document.createElement("div"); heart.className = "fas fa-snowflake"; heart.style.left = (Math.random() * 90) + "vw"; heart.style.animationDuration = (Math.random() * 3) + 2 + "s"; body.appendChild(heart); } setInterval(function name(params) { var heartArr = document.querySelectorAll(".fa-snowflake"); if (heartArr.length > 100) { heartArr[0].remove() } }, 100); Content.style = "opacity:1;margin-top:16vh"; const swals = Swal.mixin({ allowOutsideClick: false, cancelButtonColor: '#FF0040', imageHeight: 80, });
+ftganti = 0; 
+fungsi = 0; 
+fungsiAwal = 0; 
+deffotostiker = fotostiker.src; 
+
+function berjatuhan() {
+    const heart = document.createElement("div");
+    heart.className = "fas fa-snowflake";
+    heart.style.position = "absolute";
+    heart.style.top = "-10vh";
+    heart.style.left = (Math.random() * 90) + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px"; // random size
+    heart.style.color = "#fff"; // or any color you want
+    heart.style.pointerEvents = "none";
+
+    // animation
+    heart.style.animationName = "heartMove";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    heart.style.animationTimingFunction = "linear";
+    heart.style.animationFillMode = "forwards";
+
+    // remove element after animation
+    heart.addEventListener("animationend", () => heart.remove());
+
+    document.body.appendChild(heart);
+}
+
+
+
+setInterval(function name(params) { 
+        var heartArr = document.querySelectorAll(".fa-snowflake");
+        if (heartArr.length > 100) { heartArr[0].remove() } }, 100); Content.style = "opacity:1;margin-top:16vh"; const swals = Swal.mixin({ allowOutsideClick: false, cancelButtonColor: '#FF0040', imageHeight: 80, });
 
         document.getElementById("kadoIn").onclick = function () { if (fungsiAwal == 0) { audio.play(); fungsiAwal = 1; kadoIn.style = "transition:all .30s ease;transform:scale(10);opacity:0"; wallpaper.style = "transform: scale(1.6);"; ket.style = "display:none"; setTimeout(initengahan, 500); setTimeout(inipesan, 500) } }
 
@@ -255,11 +297,3 @@ ftganti = 0; fungsi = 0; fungsiAwal = 0; deffotostiker = fotostiker.src; functio
             }
 
         }
-
-
-
-
-
-
-
-
