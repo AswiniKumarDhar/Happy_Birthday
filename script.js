@@ -15,10 +15,10 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
         vketikhalo = "Hi, " + nama + " &#10084;";
 
         // ⬇️ Save to Google Sheets via GET
-    fetch(`https://script.google.com/macros/s/AKfycbx9Edeh1LK6Ahw6pDvakxpqapyOK8FHFbrYm6YD8g3POMePsTpmoGPS6qtBrx4BJUZlwA/exec?name=${encodeURIComponent(nama)}&token=Arpita@1998`)
-      .then(res => res.json())
-      .then(data => console.log("Saved:", data))
-      .catch(err => console.error("Error:", err));
+            fetch(`https://script.google.com/macros/s/AKfycbx9Edeh1LK6Ahw6pDvakxpqapyOK8FHFbrYm6YD8g3POMePsTpmoGPS6qtBrx4BJUZlwA/exec?name=${encodeURIComponent(nama)}&token=Arpita@1998`)
+                    .then(res => res.json())
+                    .then(data => console.log("Saved:", data))
+                    .catch(err => console.error("Error:", err));
 
         await swals.fire('Hi, ' + nama + ' ツ');
         await swals.fire('It\'s your birthday today!');
@@ -251,6 +251,7 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
             }
 
         }
+
 
 
 
