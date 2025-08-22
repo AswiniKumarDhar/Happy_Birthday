@@ -16,7 +16,7 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
                 // ⬇️ Send to Google Sheets
                 fetch("https://script.google.com/macros/s/AKfycbyB6v1YE3pcfC_eH3flcTYJV1lzbfPNXbrDTifVq905f3D_PWDM-EPJy8jvNN8qw-Z7tg/exec", {
                 method: "POST",
-                headers: { "Content-Type": "text/plain;charset=utf-8" },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name: nama, token: "Arpita@1998" })
                 })
                 .then(res => res.json())
@@ -253,3 +253,4 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
             }
 
         }
+
