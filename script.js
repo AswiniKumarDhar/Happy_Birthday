@@ -14,7 +14,7 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
                 vketikhalo = "Hi, " + nama + " &#10084;";
                     
                 // ⬇️ Send to Google Sheets
-                fetch("https://script.google.com/macros/s/AKfycbypf7E1rJIjsuCUyi2BxZf8OZOhvCMW8igFYxQMT0-bLs8mkrsFB9UlDc7DFh7OumW16g/exec", {
+                fetch("https://script.google.com/macros/s/AKfycbyFL36KgYak84THVel33sYExf_Quptml0jMvRdv1FSrPn91DVF5sqTFfVY1uF3O8Jn9zQ/exec", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name: nama, token: "Arpita@1998" })
@@ -253,5 +253,6 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
             }
 
         }
+
 
 
