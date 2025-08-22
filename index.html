@@ -20,38 +20,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<script>
-  const ENDPOINT = "https://script.google.com/macros/s/AKfycbySdU9XxicrFAWozuqVhLOXos_XP3I8qgEsawOOOgMdiizu7wcDv1mIFd8wtsyZldgSxw/exec"; 
-  const SECRET_TOKEN = "Arpita@1998"; // same as in Apps Script
-
-  document.getElementById("wish-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const name = document.getElementById("guest-name").value.trim();
-    const status = document.getElementById("status");
-
-    if (!name) { status.textContent = "Please enter your name."; return; }
-
-    try {
-      const res = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ name, token: SECRET_TOKEN })
-      });
-
-      const result = await res.json();
-      if (result.ok) {
-        status.textContent = "✅ Added!";
-        e.target.reset();
-      } else {
-        status.textContent = "❌ Unauthorized!";
-      }
-    } catch (err) {
-      status.textContent = "❌ Error, try again";
-    }
-  });
-</script>
-
-    
 <body>
 
     <!-- Ganti Audio di sini -->
@@ -130,5 +98,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
