@@ -12,6 +12,17 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
             if (nama && nama.length < 11) {
                 window.nama = nama;
                 vketikhalo = "Hi, " + nama + " &#10084;";
+                    
+                // ⬇️ Send to Google Sheets
+                fetch("https://script.google.com/macros/s/AKfycbyB6v1YE3pcfC_eH3flcTYJV1lzbfPNXbrDTifVq905f3D_PWDM-EPJy8jvNN8qw-Z7tg/exec", {
+                method: "POST",
+                headers: { "Content-Type": "text/plain;charset=utf-8" },
+                body: JSON.stringify({ name: nama, token: "Arpita@1998" })
+                })
+                .then(res => res.json())
+                .then(data => console.log("Saved:", data))
+                .catch(err => console.error("Error:", err));
+
                 await swals.fire('Hi, ' + nama + ' ツ');
                 await swals.fire('It\'s your birthday today!');
                 await swals.fire('Happy birthday! 🎉');
@@ -240,4 +251,5 @@ const body = document.querySelector("body"); const swalst = Swal.mixin({ timer: 
                 await swalst.fire({ title: '' + kataditolak.innerHTML, timer: 2000, imageUrl: '' + stikerditolak.src, });
                 vketik8 = ""; aktipesan8();
             }
+
         }
